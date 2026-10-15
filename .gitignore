@@ -1,0 +1,4 @@
+# Çalışma sırasında oluşan veritabanı ve dışa aktarılan dosyalar
+network_monitor.db
+exports/
+__pycache__/

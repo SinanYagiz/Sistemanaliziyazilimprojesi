@@ -1,0 +1,94 @@
+============================================================
+ YAPAY ZEKA KULLANIM GÜNLÜĞÜ
+ Proje : Python ile Bilgisayar Ağı İzleme (Network Monitoring)
+ Ders  : Sistem Analizi ve Tasarımı - Vize Ödevi
+============================================================
+
+Bu belgede proje geliştirilirken yapay zekaya sorulan promptlar
+haftalara ve modüllere göre sıralanmıştır. Her prompt tek bir
+modül veya mantık bloğu üretmek için kullanılmıştır.
+
+
+############################################################
+ HAFTA 1 - TEMEL İSKELET
+ Eklenen değişkenler (5): timestamp, interface_name,
+ interface_status, ipv4_address, mac_address
+############################################################
+
+------------------------------------------------------------
+[Hafta 1 - Adım 0a] Sistem Mimarisi ve Veri Modeli Tasarımı
+Üretilen çıktı: Klasör yapısı, iş akışı, SQLite tablo şeması (kod yok)
+------------------------------------------------------------
+Python 3 ile terminalde çalışan bir Ağ İzleme (Network Monitoring)
+uygulaması geliştirmek istiyorum. Henüz kod yazmadan önce projenin
+modüler klasör yapısını, modüller arasındaki iş akışını ve ölçülecek
+25 ağ/sistem değişkenini saklayacak SQLite tablo şemasını (sütun
+adları, veri tipleri, açıklamalar) tasarlar mısın? Her modülün tek
+bir sorumluluğu olsun (Single Responsibility).
+
+------------------------------------------------------------
+[Hafta 1 - Adım 0b] Haftalık Geliştirme Planı
+Üretilen çıktı: 5 haftalık yol haritası
+------------------------------------------------------------
+Projeyi tek seferde değil, haftalık sprintler halinde geliştirmek
+istiyorum. 25 değişkeni her hafta 5'er tane olacak şekilde 5 haftaya
+böler misin? Her haftanın sonunda program çalışır durumda olsun ve
+veritabanı şeması mevcut verileri bozmadan genişleyebilsin.
+
+------------------------------------------------------------
+[Hafta 1 - Modül 1] Veritabanı Katmanı
+Üretilen dosya: db_manager.py
+------------------------------------------------------------
+Ağ izleme projemin veritabanı katmanını Python'un sqlite3
+kütüphanesiyle yazmak istiyorum. Bu hafta tabloda 5 sütun olacak:
+timestamp, interface_name, interface_status, ipv4_address,
+mac_address. Proje her hafta yeni sütunlarla büyüyeceği için tablo
+şeması tek bir sözlükte tanımlansın. Program açıldığında eksik
+sütunlar ALTER TABLE ile otomatik eklensin, eski veriler silinmesin.
+Veri ekleme işlemi SQL Injection'a karşı parametreli sorgu (?) ile
+yapılsın. Her fonksiyonu detaylı Türkçe yorumlarla açıkla ve dosyanın
+sonuna modülü tek başına test eden bir blok ekle.
+
+------------------------------------------------------------
+[Hafta 1 - Modül 2] Ağ Arayüzü ve Sistem Toplayıcısı
+Üretilen dosyalar: interface_collector.py, requirements.txt
+------------------------------------------------------------
+Ağ izleme projem için psutil ve socket kütüphanelerini kullanan bir
+arayüz toplayıcı modülü yazmak istiyorum. Bilgisayarda birden fazla
+ağ arayüzü olabileceği için program, internete çıkışta kullanılan
+arayüzü otomatik bulsun. Bunu yaparken gerçek trafik oluşturmayan
+UDP connect yöntemini kullansın. Bulamazsa durumu UP olan ve loopback
+olmayan ilk arayüzü seçsin. Bu hafta şu 5 değişkeni sözlük olarak
+döndürsün: timestamp (YYYY-MM-DD HH:MM:SS), interface_name,
+interface_status (UP/DOWN), ipv4_address, mac_address. MAC adresi
+platformdan bağımsız olarak AA:BB:CC biçimine getirilsin. Okunamayan
+değerler None olsun. Kodu detaylı Türkçe yorumlarla açıkla ve
+dosyanın sonuna bir test bloğu ekle.
+
+------------------------------------------------------------
+[Hafta 1 - Modül 3] Ana Döngü ve Terminal Ekranı
+Üretilen dosya: main.py
+------------------------------------------------------------
+Ağ izleme projemin modüllerini birleştiren bir main.py dosyası yazmak
+istiyorum. Program açılınca veritabanını hazırlasın. Sonra her saniye
+interface_collector ile veri toplasın, db_manager ile SQLite'a
+kaydetsin ve terminali temizleyip hizalı, canlı bir özet tablo
+göstersin. İşlem süresi bekleme süresinden düşülsün ki ölçüm aralığı
+kaymasın. Tek bir ölçümde hata olursa program çökmesin, Ctrl+C ile de
+düzgün kapansın. Test için döngü sayısını sınırlayan bir parametre
+olsun. Kodu detaylı Türkçe yorumlarla açıkla.
+
+------------------------------------------------------------
+[Hafta 1 - Dokümantasyon] Prompt Günlüğü ve Proje Bağlam Dosyası
+Üretilen dosyalar: docs/yapay_zeka_kullanim_gunlugu.txt, PROJE_BAGLAMI.md
+------------------------------------------------------------
+Hafta 1'de kullandığım promptları rapora eklemek için bir metin
+belgesinde topla. Ayrıca sonraki haftalarda başka yapay zeka
+asistanlarıyla da çalışabilmem için projenin kurallarını, mimarisini,
+haftalık planını ve güncel durumunu anlatan bir Markdown dosyası
+oluştur.
+
+
+############################################################
+ HAFTA 2 - KÜMÜLATİF SAYAÇLAR (henüz başlanmadı)
+############################################################
